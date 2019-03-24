@@ -8,30 +8,55 @@ public class List_inChainOfNodes{
     /**
       Construct an empty list
      */
-     
+     public List_inChainOfNodes(){
+       headReference = null;
+     }
+
 
     /**
       @return the number of elements in this list
      */
-    // public int size() {
-    // }
+    public int size() {
+      if (headReference == null) return 0;
+      else {
+        List_inChainOfNodes shorterList = new List_inChainOfNodes();
+        shorterList.headReference = headReference.getReferenceToNextNode();
+        return shorterList.size() + 1;
+      }
+    }
 
-    
+
      /**
        @return a string representation of this list,
        format:
-           # elements [element0,element1,element2,] 
+           # elements [element0,element1,element2,]
       */
-    // public String toString() {
-    // }
-    
-    
+    public String toString() {
+      if (headReference == null) return "0 elements []";
+      else {
+        String output = size() + " elements [";
+        List_inChainOfNodes iterator = new List_inChainOfNodes();
+        iterator.headReference = headReference;
+        output += iterator.headReference.getCargoReference() + ", ";
+        for (int i = 0; i < size() - 1; i++){
+          System.out.println("Getting next node");
+          iterator.headReference = iterator.headReference.getReferenceToNextNode();
+          System.out.println("Adding cargo to output");
+          output += iterator.headReference.getCargoReference() + ", ";
+        }
+        return output + "]";
+      }
+    }
+
+
     /**
       Append @value to the head of this list.
 
       @return true, in keeping with conventions yet to be discussed
      */
      public boolean addAsHead( Object val) {
-        return true;
+       Node addend = new Node(val, headReference);
+       headReference = addend;
+       return true;
      }
 }
