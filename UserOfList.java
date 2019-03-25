@@ -25,5 +25,6 @@ public class UserOfList {
         }
         System.out.println( "populated list: " + list
                           + System.lineSeparator());
+        System.out.println( "Getting 3rd object: " + list.get(2));
     }
 }

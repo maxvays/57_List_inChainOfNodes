@@ -48,15 +48,33 @@ public class List_inChainOfNodes{
       }
     }
 
+    public Object get( int index ) {
+      if (index == 0) return headReference.getCargoReference();
+      else {
+        List_inChainOfNodes recursor = new List_inChainOfNodes();
+        recursor.headReference = headReference.getReferenceToNextNode();
+        return recursor.get(index - 1);
+      }
+    }
+
+    public Object set( int index ) {
+      if (index == 0) return headReference.getCargoReference();
+      else {
+        List_inChainOfNodes recursor = new List_inChainOfNodes();
+        recursor.headReference = headReference.getReferenceToNextNode();
+        return recursor.get(index - 1);
+      }
+    }
+
 
     /**
       Append @value to the head of this list.
 
       @return true, in keeping with conventions yet to be discussed
      */
-     public boolean addAsHead( Object val) {
-       Node addend = new Node(val, headReference);
-       headReference = addend;
-       return true;
-     }
+    public boolean addAsHead( Object val) {
+      Node addend = new Node(val, headReference);
+      headReference = addend;
+      return true;
+    }
 }
