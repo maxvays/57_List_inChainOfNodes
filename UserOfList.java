@@ -26,5 +26,14 @@ public class UserOfList {
         System.out.println( "populated list: " + list
                           + System.lineSeparator());
         System.out.println( "Getting 3rd object: " + list.get(2));
+        System.out.println("Set 4th object to \"p\":");
+        list.set(3,"p");
+        System.out.println(list);
+        System.out.println("Add \"d\" to index 4:");
+        list.add(4, "d");
+        System.out.println(list);
+        System.out.println("Add \"i\" to index 4:");
+        list.add(4, "i");
+        System.out.println(list);
     }
 }
