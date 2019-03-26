@@ -83,7 +83,19 @@ public class List_inChainOfNodes{
 
     public Object remove( int index ) {
       if(index == 0) {
-        headReference = headReference.getReferenceToNextNode;
+        Object old = headReference.getCargoReference();
+        headReference = headReference.getReferenceToNextNode();
+        return old;
+      }
+      else if(index == 1) {
+        Object old = headReference.getReferenceToNextNode().getCargoReference();
+        headReference.setReferenceToNextNode(headReference.getReferenceToNextNode().getReferenceToNextNode());
+        return old;
+      }
+      else {
+        List_inChainOfNodes recursor = new List_inChainOfNodes();
+        recursor.headReference = headReference.getReferenceToNextNode();
+        return recursor.remove(index - 1);
       }
     }
 

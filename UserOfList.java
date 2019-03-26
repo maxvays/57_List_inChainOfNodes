@@ -35,5 +35,7 @@ public class UserOfList {
         System.out.println("Add \"i\" to index 4:");
         list.add(4, "i");
         System.out.println(list);
+        System.out.println("Remove object 0 " + list.remove(0) + " and remove object 2 " + list.remove(2));
+        System.out.println(list);
     }
 }
