@@ -72,9 +72,9 @@ public class List_inChainOfNodes{
       if (index == 0) addAsHead(val);
       else if (index == 1) headReference.setReferenceToNextNode(new Node(val, headReference.getReferenceToNextNode()));
       else {
-        Node iterator = headReference;
-        for(int i = 0; i < index - 1; i++){
-          iterator = iterator.getReferenceToNextNode();
+        Node iterator;
+        int i;
+        for(i = 0, iterator = headReference; i < index - 1; i++, iterator = iterator.getReferenceToNextNode()){
         }
         Node addend = new Node(val, iterator.getReferenceToNextNode());
         iterator.setReferenceToNextNode(addend);
